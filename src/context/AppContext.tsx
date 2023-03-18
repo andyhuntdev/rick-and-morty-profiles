@@ -10,8 +10,8 @@ interface IAppContext {
     setCurrentPage: Dispatch<SetStateAction<number>>,
     totalPages: number | null,
     setTotalPages: Dispatch<SetStateAction<number | null>>
-    characters: ICharacter[][],
-    setCharacters: Dispatch<SetStateAction<ICharacter[][]>>
+    characters: ICharacter[],
+    setCharacters: Dispatch<SetStateAction<ICharacter[]>>
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -23,10 +23,10 @@ export const AppContext = createContext<IAppContext>({
     setCharacters: () => {},
 });
 
-export const AppContentProvider: FC<IProps> = ({ children }) => {
+export const AppContextProvider: FC<IProps> = ({ children }) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number | null>(null);
-    const [characters, setCharacters] = useState<ICharacter[][]>([]);
+    const [characters, setCharacters] = useState<ICharacter[]>([]);
 
     return (
         <AppContext.Provider
