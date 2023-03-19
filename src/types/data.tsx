@@ -17,3 +17,15 @@ export interface ICharacter {
     url: string,
     created: string,
 }
+
+interface IInfo {
+    count: number,
+    pages: number,
+    prev: string | null,
+    next: string | null,
+}
+
+export interface IRes {
+    info: IInfo,
+    results: ICharacter[],
+}
