@@ -1,14 +1,7 @@
-import { ReactNode } from 'react';
+import { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { contrast, skin } from '../assets/colors';
-
-type IButton = {
-    children: ReactNode;
-    variant?: 'solid' | 'outline';
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    disabled?: boolean;
-    interactive?: boolean;
-};
+import { IButton } from '../types/components';
 
 export const StyledButton = styled.button<IButton>`
     height: 3rem;
@@ -25,7 +18,6 @@ export const StyledButton = styled.button<IButton>`
     background-color: transparent;
     border-radius: 2rem;
     font-weight: 600;
-    position: relative;
     transition: box-shadow 0.25s ease, background-color 0.25s ease;
     &:hover {
         box-shadow: rgb(111, 255, 176) 0px 0px 0px 2px;
@@ -50,7 +42,7 @@ export const StyledButton = styled.button<IButton>`
         `}
 `;
 
-export default function Button({ variant, children, onClick, disabled, interactive = true }: IButton) {
+const Button:FC<IButton> = ({ variant,children, onClick, disabled, interactive = true }) => {
     return (
         <StyledButton
             variant={variant}
@@ -61,10 +53,12 @@ export default function Button({ variant, children, onClick, disabled, interacti
             {children}
         </StyledButton>
     );
-}
+};
 
-Button.defaulProps = {
-    variant: 'solid',
+Button.defaultProps = {
+    variant: 'outline',
     disabled: false,
     interactive: true,
 };
+
+export default Button;

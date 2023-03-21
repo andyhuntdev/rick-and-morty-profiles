@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import styled from 'styled-components';
 import { contrast } from '../assets/colors';
 
@@ -15,11 +16,13 @@ const StyledFooter = styled.footer`
     }
 `
 
-export default function Footer() {
+const Footer:FC = () => {
     return (
         <StyledFooter>
             <hr/>
-            <p>@andyhuntdev</p>
+            <p>Wubba Lubba Dub Dub! - <a href="https://andreacaccia.com/" target="_blank" rel="noreferrer">@andyhuntdev</a></p>
         </StyledFooter>
     );
 }
+
+export default Footer;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 import { contrast, skin } from '../assets/colors';
 import { ICharacter } from '../types/data';
@@ -16,8 +16,6 @@ const Profile = styled.img`
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     align-self: center;
-    max-width: 300px;
-    height: 300px;
 `;
 
 const BlockList = styled.div`
@@ -66,9 +64,9 @@ const ButtonGroup = styled.div`
     ${StyledButton} {
         flex: 1;
     }
-`
+`;
 
-export default function Card({
+const Card: FC<ICharacter> = ({
     image,
     name,
     status,
@@ -77,7 +75,7 @@ export default function Card({
     origin,
     location,
     episode,
-}: ICharacter) {
+}) => {
     const [cardStatus, setCardStatus] = useState<'info' | 'episodes'>('info');
 
     return (
@@ -139,4 +137,6 @@ export default function Card({
             </ButtonGroup>
         </StyledCard>
     );
-}
+};
+
+export default Card;

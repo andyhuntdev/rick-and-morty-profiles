@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import styled from 'styled-components';
 import { contrast, skin } from '../assets/colors';
 import { github, logo } from '../assets/glyphs';
@@ -9,7 +10,7 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 100;
+    z-index: 10;
 `
 const Headline = styled.a`
     font-size: 1.5rem;
@@ -37,13 +38,15 @@ const ProfileLink = styled.a`
     }
 `
 
-export default function Header() {
+const Header:FC = () => {
     return (
         <StyledHeader>
-            <Headline href="/">{logo} Rick and Morty</Headline>
-            <ProfileLink href="#" target="_blank">
+            <Headline href="/">{logo} Rick and Morty profiles</Headline>
+            <ProfileLink href="https://github.com/andyhuntdev/rick-and-morty-profiles" target="_blank">
                 {github} Github
             </ProfileLink>
         </StyledHeader>
     );
 }
+
+export default Header;

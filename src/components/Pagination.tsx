@@ -3,6 +3,7 @@ import Button, { StyledButton } from './Button';
 import styled from 'styled-components';
 import { fastNext, next, prev, fastPrev } from '../assets/glyphs';
 import { layer } from '../assets/colors';
+import { FC } from 'react';
 
 const StyledPagination = styled.div`
     width: 100%;
@@ -22,7 +23,7 @@ const StyledPagination = styled.div`
     }
 `;
 
-export default function Pagination({ totalPages, currentPage, onChange }: IPagination) {
+const Pagination:FC<IPagination> = ({ totalPages, currentPage, onChange }) => {
     const maxbuttonsToShow = 3;
     const renderPagebuttons = () => {
         const pagebuttons = [];
@@ -68,9 +69,11 @@ export default function Pagination({ totalPages, currentPage, onChange }: IPagin
             }
 
             pagebuttons.unshift(
-                <Button disabled={currentPage === 1} onClick={() => onChange(currentPage - 1)}>
-                    {prev}
-                </Button>
+                <>
+                    {currentPage !== 1 && (
+                        <Button onClick={() => onChange(currentPage - 1)}>{prev}</Button>
+                    )}
+                </>
             );
 
             if (startPage > 1) {
@@ -80,12 +83,11 @@ export default function Pagination({ totalPages, currentPage, onChange }: IPagin
             }
 
             pagebuttons.push(
-                <Button
-                    disabled={currentPage === totalPages}
-                    onClick={() => onChange(currentPage + 1)}
-                >
-                    {next}
-                </Button>
+                <>
+                    {currentPage !== totalPages && (
+                        <Button onClick={() => onChange(currentPage + 1)}>{next}</Button>
+                    )}
+                </>
             );
 
             if (endPage < totalPages) {
@@ -110,3 +112,5 @@ export default function Pagination({ totalPages, currentPage, onChange }: IPagin
         </StyledPagination>
     );
 }
+
+export default Pagination;
