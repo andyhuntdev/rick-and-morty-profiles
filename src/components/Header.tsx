@@ -41,7 +41,7 @@ const ProfileLink = styled.a`
 const Header:FC = () => {
     return (
         <StyledHeader>
-            <Headline href="/">{logo} Rick and Morty profiles</Headline>
+            <Headline href="/">{logo} Rick and Morty</Headline>
             <ProfileLink href="https://github.com/andyhuntdev/rick-and-morty-profiles" target="_blank">
                 {github} Github
             </ProfileLink>

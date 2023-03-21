@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { fastNext, next, prev, fastPrev } from '../assets/glyphs';
 import { layer } from '../assets/colors';
 import { FC } from 'react';
+import { breakpoints } from '../assets/constants';
 
 const StyledPagination = styled.div`
     width: 100%;
@@ -14,6 +15,12 @@ const StyledPagination = styled.div`
     top: 0;
     background-color: ${layer.high};
     backdrop-filter: blur(10px);
+    @media (max-width: ${breakpoints.md - 1}px) {
+        ${StyledButton} {
+            min-width: 2rem;
+            height: 2rem;
+        }
+    }
     ${StyledButton} {
         padding: 0;
         > svg {
@@ -24,7 +31,7 @@ const StyledPagination = styled.div`
 `;
 
 const Pagination:FC<IPagination> = ({ totalPages, currentPage, onChange }) => {
-    const maxbuttonsToShow = 3;
+    const maxbuttonsToShow = 2;
     const renderPagebuttons = () => {
         const pagebuttons = [];
         const siblingCount = 2;
@@ -100,11 +107,11 @@ const Pagination:FC<IPagination> = ({ totalPages, currentPage, onChange }) => {
 
     return (
         <StyledPagination>
-            {currentPage > 4 && <Button onClick={() => onChange(1)}>1</Button>}
+            {currentPage > 4 && window.innerWidth >= breakpoints.md && <Button onClick={() => onChange(1)}>1</Button>}
 
             {renderPagebuttons()}
 
-            {currentPage < totalPages - 2 && (
+            {currentPage < totalPages - 2 && window.innerWidth >= breakpoints.md && (
                 <Button disabled={currentPage === totalPages} onClick={() => onChange(totalPages)}>
                     {totalPages}
                 </Button>
