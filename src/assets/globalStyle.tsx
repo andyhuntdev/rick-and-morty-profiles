@@ -55,6 +55,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         background-color: ${contrast.low};
         color: ${contrast.high};
+        overflow-x: hidden;
     }
     a {
       text-decoration: none;
@@ -63,6 +64,16 @@ const GlobalStyle = createGlobalStyle`
       &:hover {
         color: ${skin.primaryDark};
       }
+    }
+    hr {
+        border-color: ${contrast.middle};
+        display: block;
+        width: 100%;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
     }
 `;
 

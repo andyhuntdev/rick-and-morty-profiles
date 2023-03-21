@@ -2,10 +2,17 @@ import { IPagination } from '../types/components';
 import Button, { StyledButton } from './Button';
 import styled from 'styled-components';
 import { fastNext, next, prev, fastPrev } from '../assets/glyphs';
+import { layer } from '../assets/colors';
 
 const StyledPagination = styled.div`
+    width: 100%;
     display: flex;
     gap: 0.25rem;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    background-color: ${layer.high};
+    backdrop-filter: blur(10px);
     ${StyledButton} {
         padding: 0;
         > svg {
@@ -16,10 +23,10 @@ const StyledPagination = styled.div`
 `;
 
 export default function Pagination({ totalPages, currentPage, onChange }: IPagination) {
-    const maxbuttonsToShow = 5;
+    const maxbuttonsToShow = 3;
     const renderPagebuttons = () => {
         const pagebuttons = [];
-        const siblingCount = 3;
+        const siblingCount = 2;
 
         if (totalPages <= maxbuttonsToShow) {
             for (let page = 1; page <= totalPages; page++) {
@@ -91,15 +98,15 @@ export default function Pagination({ totalPages, currentPage, onChange }: IPagin
 
     return (
         <StyledPagination>
-            <Button disabled={currentPage === 1} onClick={() => onChange(1)}>
-                1
-            </Button>
+            {currentPage > 4 && <Button onClick={() => onChange(1)}>1</Button>}
 
             {renderPagebuttons()}
 
-            <Button disabled={currentPage === totalPages} onClick={() => onChange(totalPages)}>
-                {totalPages}
-            </Button>
+            {currentPage < totalPages - 2 && (
+                <Button disabled={currentPage === totalPages} onClick={() => onChange(totalPages)}>
+                    {totalPages}
+                </Button>
+            )}
         </StyledPagination>
     );
 }

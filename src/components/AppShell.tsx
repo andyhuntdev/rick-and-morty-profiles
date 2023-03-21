@@ -1,12 +1,19 @@
-import { IChildren } from '../types/components';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
 
 const StyledAppShell = styled.div`
     width: 100%;
-    min-height: calc(100vh - 90px);
-    padding-top: 90px;
-`
+    min-height: 100vh;
+`;
 
-export default function AppShell({ children }: IChildren) {
-    return <StyledAppShell>{children}</StyledAppShell>;
+export default function AppShell() {
+    return (
+        <StyledAppShell>
+            <Header />
+            <Main />
+            <Footer />
+        </StyledAppShell>
+    );
 }

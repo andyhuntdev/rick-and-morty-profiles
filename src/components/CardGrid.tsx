@@ -1,21 +1,31 @@
-import { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
 import styled from 'styled-components';
 import Card from './Card';
+import { breakpoints } from '../assets/constants';
+import { ICharacter } from '../types/data';
+
+interface ICardGrid {
+    characters: ICharacter[],
+}
 
 const Grid = styled.div`
-    padding: 2rem 0;
+    padding: 1rem 2rem;
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
+    @media (min-width: ${breakpoints.md}px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: ${breakpoints.lg}px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: ${breakpoints.xl}px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 `
 
-export default function CardGrid() {
-    const { characters } = useContext(AppContext);
-
+export default function CardGrid({characters}:ICardGrid) {
     return (
         <Grid>
-            {!!characters?.length && characters.map((character) => <Card>{character.name}</Card>)}
+            {!!characters?.length && characters.map((character) => <Card key={character.id} {...character}/>)}
         </Grid>
     );
 }

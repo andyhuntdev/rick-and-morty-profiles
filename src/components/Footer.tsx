@@ -1,4 +1,3 @@
-import Container from './Container';
 import styled from 'styled-components';
 import { contrast } from '../assets/colors';
 
@@ -12,7 +11,7 @@ const StyledFooter = styled.footer`
         border-color: ${contrast.middle};
     }
     > p {
-        margin-top: 1rem;
+        margin: 1rem 0;
     }
 `
 
@@ -20,7 +19,7 @@ export default function Footer() {
     return (
         <StyledFooter>
             <hr/>
-            <p>Develop with ...</p>
+            <p>@andyhuntdev</p>
         </StyledFooter>
     );
 }
