@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/rick-and-morty-profiles/static/js/main.2948392f.js",
+    "static/js/787.0677d21e.chunk.js": "/rick-and-morty-profiles/static/js/787.0677d21e.chunk.js",
+    "index.html": "/rick-and-morty-profiles/index.html",
+    "main.2948392f.js.map": "/rick-and-morty-profiles/static/js/main.2948392f.js.map",
+    "787.0677d21e.chunk.js.map": "/rick-and-morty-profiles/static/js/787.0677d21e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.2948392f.js"
+  ]
+}
