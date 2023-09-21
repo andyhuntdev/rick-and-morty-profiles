@@ -14,7 +14,7 @@ git clone https://github.com/andyhuntdev/rick-and-morty-profiles.git
 ````
 2. Go in folder
 ````
-cd aniscover
+cd rick-and-morty-profiles
 ````
 3. Install packages
 `````
