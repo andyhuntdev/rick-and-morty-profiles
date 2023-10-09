@@ -1,6 +1,8 @@
 # Rick and Morty profiles
 
-Web App to discover Rick and Morty's characters profiles using React and GraphQL
+<img width="1734" alt="image" src="https://github.com/andyhuntdev/rick-and-morty-profiles/assets/84645169/9e7533bb-2098-4c20-a700-f1c89ab10c05">
+
+Web App to discover Rick and Morty's characters profiles using Reactjs and GraphQL
 
 ## Getting started
 ### Prerequisites
